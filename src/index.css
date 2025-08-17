@@ -106,7 +106,7 @@
   /* Fusion Button - The single interactive accent */
   .btn-fusion {
     @apply bg-primary text-primary-foreground px-8 py-4 rounded font-mono font-medium tracking-wide;
-    @apply transition-all duration-300 ease-scientific;
+    transition: all 0.3s var(--ease-scientific);
     @apply hover:shadow-lg hover:scale-105;
     box-shadow: var(--glow-fusion);
   }
@@ -149,15 +149,5 @@
   
   .animate-on-scroll.in-view {
     @apply opacity-100 translate-y-0;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
   }
 }
