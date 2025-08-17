@@ -21,14 +21,37 @@ const Index = () => {
   const architectureRef = useScrollAnimation();
   const ctaRef = useScrollAnimation();
 
-  const handleWaitlistSignup = (e: React.FormEvent) => {
+  const handleWaitlistSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (!email) return;
+    try {
+      const response = await fetch(
+        'https://formsubmit.co/ajax/dhruvgargpkl@gmail.com',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({ email }),
+        },
+      );
+      if (response.ok) {
+        toast({
+          title: 'Welcome to the Future',
+          description:
+            "You've been added to our network. We'll be in touch soon.",
+        });
+        setEmail('');
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    } catch (error) {
       toast({
-        title: "Welcome to the Future",
-        description: "You've been added to our waitlist. We'll be in touch soon.",
+        title: 'Submission failed',
+        description: 'Please try again later.',
+        variant: 'destructive',
       });
-      setEmail('');
     }
   };
 
@@ -168,7 +191,7 @@ const Index = () => {
                 className="font-mono bg-background border-border text-foreground placeholder:text-muted-foreground"
               />
               <Button type="submit" className="btn-fusion shrink-0 whitespace-nowrap w-full sm:w-auto">
-                Join the Waitlist
+                Join the Network
               </Button>
             </form>
             
