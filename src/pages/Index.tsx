@@ -10,6 +10,7 @@ import FusionDiagram from '@/components/diagrams/FusionDiagram';
 import ArchitectureDiagram from '@/components/diagrams/ArchitectureDiagram';
 import FloatingParticles from '@/components/FloatingParticles';
 import SectionNavigation from '@/components/SectionNavigation';
+import InteractiveBackground from '@/components/InteractiveBackground';
 
 const Index = () => {
   const [email, setEmail] = useState('');
@@ -33,16 +34,19 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background relative">
-      <FloatingParticles count={25} />
+      <InteractiveBackground />
+      <FloatingParticles count={30} interactive={true} variant="glow" />
       <SectionNavigation />
       
       {/* Hero Section */}
-      <div id="hero">
+      <div id="hero" className="relative">
+        <FloatingParticles count={15} interactive={true} variant="fusion" />
         <Hero />
       </div>
       
       {/* Problem Section - Fission */}
       <section id="fission" className="py-24 px-6 relative">
+        <FloatingParticles count={40} interactive={true} variant="fission" />
         <div className="max-w-7xl mx-auto">
           <motion.div 
             ref={fissionRef.ref}
@@ -75,6 +79,7 @@ const Index = () => {
 
       {/* Solution Section - Fusion */}
       <section id="fusion" className="py-24 px-6 bg-muted/5 relative">
+        <FloatingParticles count={25} interactive={true} variant="fusion" />
         <div className="max-w-7xl mx-auto">
           <motion.div 
             ref={fusionRef.ref}
@@ -107,6 +112,7 @@ const Index = () => {
 
       {/* How It Works Section */}
       <section id="architecture" className="py-24 px-6 relative">
+        <FloatingParticles count={20} interactive={true} variant="glow" />
         <div className="max-w-7xl mx-auto">
           <motion.div 
             ref={architectureRef.ref}
@@ -136,7 +142,8 @@ const Index = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section id="waitlist" className="py-24 px-6 bg-muted/10">
+      <section id="waitlist" className="py-24 px-6 bg-muted/10 relative">
+        <FloatingParticles count={35} interactive={true} variant="fusion" />
         <div className="max-w-4xl mx-auto text-center">
           <motion.div 
             ref={ctaRef.ref}
