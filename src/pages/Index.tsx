@@ -167,7 +167,7 @@ const Index = () => {
                 required
                 className="font-mono bg-background border-border text-foreground placeholder:text-muted-foreground"
               />
-              <Button type="submit" className="btn-fusion">
+              <Button type="submit" className="btn-fusion shrink-0 whitespace-nowrap w-full sm:w-auto">
                 Join the Waitlist
               </Button>
             </form>
