@@ -24,9 +24,13 @@ const Index = () => {
   const handleWaitlistSignup = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
+      window.location.href =
+        `mailto:dhruvgargpkl@gmail.com?subject=Join%20the%20Network&body=Please%20add%20${encodeURIComponent(
+          email,
+        )}%20to%20the%20network.`;
       toast({
         title: "Welcome to the Future",
-        description: "You've been added to our waitlist. We'll be in touch soon.",
+        description: "You've been added to our network. We'll be in touch soon.",
       });
       setEmail('');
     }
@@ -168,7 +172,7 @@ const Index = () => {
                 className="font-mono bg-background border-border text-foreground placeholder:text-muted-foreground"
               />
               <Button type="submit" className="btn-fusion shrink-0 whitespace-nowrap w-full sm:w-auto">
-                Join the Waitlist
+                Join the Network
               </Button>
             </form>
             

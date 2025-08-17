@@ -6,7 +6,7 @@ const sections = [
   { id: 'fission', label: 'Problem' },
   { id: 'fusion', label: 'Solution' },
   { id: 'architecture', label: 'How It Works' },
-  { id: 'waitlist', label: 'Join Us' },
+  { id: 'waitlist', label: 'Join the Network' },
 ];
 
 const SectionNavigation: React.FC = () => {
