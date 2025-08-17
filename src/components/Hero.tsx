@@ -37,7 +37,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 1.2 }}
           >
             <Button 
-              className="btn-fusion text-lg px-15 py-6 rounded-full"
+              className="btn-fusion text-lg px-20 py-6 rounded-full"
               onClick={() => {
                 document.getElementById('waitlist')?.scrollIntoView({ 
                   behavior: 'smooth' 
