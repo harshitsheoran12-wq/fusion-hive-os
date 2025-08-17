@@ -21,18 +21,37 @@ const Index = () => {
   const architectureRef = useScrollAnimation();
   const ctaRef = useScrollAnimation();
 
-  const handleWaitlistSignup = (e: React.FormEvent) => {
+  const handleWaitlistSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      window.location.href =
-        `mailto:dhruvgargpkl@gmail.com?subject=Join%20the%20Network&body=Please%20add%20${encodeURIComponent(
-          email,
-        )}%20to%20the%20network.`;
+    if (!email) return;
+    try {
+      const response = await fetch(
+        'https://formsubmit.co/ajax/dhruvgargpkl@gmail.com',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({ email }),
+        },
+      );
+      if (response.ok) {
+        toast({
+          title: 'Welcome to the Future',
+          description:
+            "You've been added to our network. We'll be in touch soon.",
+        });
+        setEmail('');
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    } catch (error) {
       toast({
-        title: "Welcome to the Future",
-        description: "You've been added to our network. We'll be in touch soon.",
+        title: 'Submission failed',
+        description: 'Please try again later.',
+        variant: 'destructive',
       });
-      setEmail('');
     }
   };
 
