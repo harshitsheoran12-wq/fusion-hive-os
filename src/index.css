@@ -107,8 +107,25 @@
   .btn-fusion {
     @apply bg-primary text-primary-foreground px-8 py-4 rounded font-mono font-medium tracking-wide;
     transition: all 0.3s var(--ease-scientific);
-    @apply hover:shadow-lg hover:scale-105;
+    @apply hover:shadow-lg hover:scale-105 active:scale-95;
     box-shadow: var(--glow-fusion);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-fusion::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  .btn-fusion:hover::before {
+    left: 100%;
   }
   
   .btn-fusion:hover {

@@ -8,6 +8,8 @@ import Hero from '@/components/Hero';
 import FissionDiagram from '@/components/diagrams/FissionDiagram';
 import FusionDiagram from '@/components/diagrams/FusionDiagram';
 import ArchitectureDiagram from '@/components/diagrams/ArchitectureDiagram';
+import FloatingParticles from '@/components/FloatingParticles';
+import SectionNavigation from '@/components/SectionNavigation';
 
 const Index = () => {
   const [email, setEmail] = useState('');
@@ -30,12 +32,17 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <FloatingParticles count={25} />
+      <SectionNavigation />
+      
       {/* Hero Section */}
-      <Hero />
+      <div id="hero">
+        <Hero />
+      </div>
       
       {/* Problem Section - Fission */}
-      <section className="py-24 px-6">
+      <section id="fission" className="py-24 px-6 relative">
         <div className="max-w-7xl mx-auto">
           <motion.div 
             ref={fissionRef.ref}
@@ -67,7 +74,7 @@ const Index = () => {
       </section>
 
       {/* Solution Section - Fusion */}
-      <section className="py-24 px-6 bg-muted/5">
+      <section id="fusion" className="py-24 px-6 bg-muted/5 relative">
         <div className="max-w-7xl mx-auto">
           <motion.div 
             ref={fusionRef.ref}
@@ -99,7 +106,7 @@ const Index = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-24 px-6">
+      <section id="architecture" className="py-24 px-6 relative">
         <div className="max-w-7xl mx-auto">
           <motion.div 
             ref={architectureRef.ref}
