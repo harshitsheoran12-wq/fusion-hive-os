@@ -36,15 +36,15 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 1.2 }}
           >
-            <Button 
-              className="btn-fusion text-lg px-12 py-6"
+            <Button
+              className="btn-fusion text-lg px-28 py-6 rounded-full"
               onClick={() => {
-                document.getElementById('waitlist')?.scrollIntoView({ 
-                  behavior: 'smooth' 
+                document.getElementById('waitlist')?.scrollIntoView({
+                  behavior: 'smooth'
                 });
               }}
             >
-              Join the Waitlist
+              Join the Network
             </Button>
           </motion.div>
         </motion.div>
