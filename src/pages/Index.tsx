@@ -194,8 +194,12 @@ const Index = () => {
                 Join the Network
               </Button>
             </form>
-            
-            <motion.div 
+
+            <p className="font-mono text-sm mt-12 text-muted-foreground">
+              Version 1 will be released by 1st September.
+            </p>
+
+            <motion.div
               className="mt-16 opacity-60"
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.6 }}

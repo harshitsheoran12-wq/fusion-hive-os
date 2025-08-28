@@ -8,6 +8,16 @@ interface FloatingParticlesProps {
   variant?: 'default' | 'fusion' | 'fission' | 'glow';
 }
 
+interface Particle {
+  id: number;
+  x: number;
+  y: number;
+  size: number;
+  duration: number;
+  delay: number;
+  speed: number;
+}
+
 const FloatingParticles: React.FC<FloatingParticlesProps> = ({ 
   count = 20, 
   className = "",
@@ -17,7 +27,7 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [clickedParticles, setClickedParticles] = useState<Set<number>>(new Set());
 
-  const particles = Array.from({ length: count }, (_, i) => ({
+  const particles: Particle[] = Array.from({ length: count }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
@@ -65,7 +75,7 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
     }
   };
 
-  const getMouseInfluence = (particle: any) => {
+  const getMouseInfluence = (particle: Particle) => {
     if (!interactive) return { x: 0, y: 0 };
     
     const distance = Math.sqrt(
